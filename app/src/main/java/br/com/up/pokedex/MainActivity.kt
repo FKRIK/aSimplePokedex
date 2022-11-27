@@ -69,7 +69,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(
             this,
             PokemonDetailsActivity::class.java)
-        intent.putExtra("pokemon",pokemon.name)
+        var id = pokemon.url.dropLast(1)
+        id = id.takeLastWhile { it.isDigit() }
+        intent.putExtra("pokemon",id)
         startActivity(intent)
     }
 }

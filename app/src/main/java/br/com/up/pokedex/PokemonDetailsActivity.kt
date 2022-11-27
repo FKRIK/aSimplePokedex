@@ -21,14 +21,16 @@ class PokemonDetailsActivity : AppCompatActivity() {
         val pokemonMov : TextView = findViewById(R.id.txt_pokemon_mov)
         val pokemonHab : TextView = findViewById(R.id.txt_pokemon_hab)
 
-        val url = "https://pokeapi.co/api/v2/pokemon/${pokemon}"
+        val url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemon.png"
         Picasso.get().load(url).into(pokemonImagem)
+
+
 
         PokeApi().getPokemonByName(pokemon!!){
                 pokemon ->
 
             if(pokemon != null){
-
+                pokemonNome.text = pokemon.name;
             }
         }
 
